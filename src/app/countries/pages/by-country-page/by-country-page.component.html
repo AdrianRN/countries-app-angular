@@ -1,0 +1,19 @@
+<h2 class="text-4xl font-semibold">By country's name</h2><hr class="my-4">
+
+<div class="flex">
+  <div class="w-full">
+    <!-- SearchBox -->
+    <shared-search-input
+    placeholder="Search by country"
+    (onValue)="searchByCountry($event)"
+    ></shared-search-input>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="w-full">
+    <hr class="my-4">
+    <!-- Tabla de resultados -->
+    <countries-table [countries]="countries"></countries-table>
+  </div>
+</div>

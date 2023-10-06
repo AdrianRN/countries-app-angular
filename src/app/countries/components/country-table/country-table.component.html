@@ -1,0 +1,69 @@
+<div *ngIf="countries.length === 0; else table"
+  class="mb-4 rounded-lg bg-yellow-100 px-6 py-5 text-base text-yellow-800">
+  No data to show
+</div>
+
+<ng-template #table>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            #
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Icon
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Flag
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Name
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Capital
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Population
+          </th>
+          <th scope="col" class="px-6 py-3">
+
+          </th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countries; let i = index"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{i + 1}}
+          </th>
+          <td class="px-6 py-4">
+            {{country.flag}}
+          </td>
+          <td class="px-6 py-4">
+            <img [src]="country.flags.svg" [alt]="country.name.common" class="w-9">
+          </td>
+          <td class="px-6 py-4">
+            {{country.name.common}}
+          </td>
+          <td class="px-6 py-4">
+            {{country.capital}}
+          </td>
+          <td class="px-6 py-4">
+            {{country.population | number}}
+          </td>
+          <td class="px-6 py-4">
+            <a [routerLink]="[ '/countries/by', country.cca3 ]"
+              class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Read more...</a>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</ng-template>
