@@ -1,19 +1,24 @@
-<h2 class="text-4xl font-semibold">By country's name</h2><hr class="my-4">
+<h2 class="text-4xl pt-5 font-semibold text-white">By country</h2>
+<hr class="my-5 h-1 bg-gradient-to-r from-gray-300 via-gray-300 to-gray-800 border-t-0 opacity-50 dark:opacity-100" />
+
 
 <div class="flex">
   <div class="w-full">
     <!-- SearchBox -->
     <shared-search-input
     placeholder="Search by country"
-    (onValue)="searchByCountry($event)"
+    [initialValue]="initialValue"
+    (onDebounce)="searchByCountry($event)"
     ></shared-search-input>
   </div>
 </div>
 
 <div class="flex">
-  <div class="w-full">
-    <hr class="my-4">
+  <div class="w-full my-5">
+
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
     <!-- Tabla de resultados -->
-    <countries-table [countries]="countries"></countries-table>
+    <countries-table [isLoading]="isLoading" [countries]="countries"></countries-table>
   </div>
 </div>
