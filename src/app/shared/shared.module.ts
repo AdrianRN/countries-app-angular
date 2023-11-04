@@ -6,26 +6,29 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { ContactPageComponent } from './pages/contact-page/contact-page/contact-page.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 
 @NgModule({
   declarations: [
-    HomePageComponent,
     AboutPageComponent,
-    SidebarComponent,
     ContactPageComponent,
-    SearchInputComponent
+    HomePageComponent,
+    LoadingSpinnerComponent,
+    SearchInputComponent,
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    HomePageComponent,
     AboutPageComponent,
+    HomePageComponent,
+    LoadingSpinnerComponent,
+    SearchInputComponent,
     SidebarComponent,
-    SearchInputComponent
 
   ]
 })
